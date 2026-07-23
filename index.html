@@ -111,10 +111,11 @@
   /* Dulzura */
   .dulce-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
   .dulce-visual{aspect-ratio:4/5;border-radius:var(--r-card);background:linear-gradient(160deg,#17696c,#0a3a40);
-    box-shadow:var(--sombra);position:relative;display:flex;align-items:center;justify-content:center;padding:40px;text-align:center;overflow:hidden}
-  .dulce-visual .frame{position:absolute;inset:16px;border:1px solid rgba(224,193,136,.35);border-radius:calc(var(--r-card) - 8px)}
-  .dulce-visual p{font-family:'Fraunces',serif;font-style:italic;font-size:1.7rem;color:#fbf7ef;line-height:1.35;position:relative;font-weight:400}
-  .dulce-visual .ph{position:absolute;bottom:16px;left:0;right:0;font-family:'Manrope',sans-serif;font-size:.64rem;letter-spacing:.14em;color:rgba(251,247,239,.45);text-transform:uppercase}
+    box-shadow:var(--sombra);position:relative;overflow:hidden}
+  .dulce-visual .dv-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+  .dulce-visual .dv-shade{position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(8,52,58,.9) 0%,rgba(8,52,58,.15) 48%,rgba(8,52,58,.4) 100%)}
+  .dulce-visual .frame{position:absolute;inset:16px;z-index:2;border:1px solid rgba(224,193,136,.45);border-radius:calc(var(--r-card) - 8px)}
+  .dulce-visual p{position:absolute;z-index:3;bottom:40px;left:30px;right:30px;font-family:'Fraunces',serif;font-style:italic;font-size:1.7rem;color:#fbf7ef;line-height:1.35;font-weight:400;text-align:center;text-shadow:0 2px 20px rgba(8,52,58,.6)}
   .dulce-card h3{font-size:2.1rem;margin-bottom:16px;font-weight:500}
   .dulce-card > p{color:var(--ink-soft);font-weight:300;margin-bottom:22px;font-size:1.05rem}
   .taste-tags{display:flex;flex-wrap:wrap;gap:11px;margin-bottom:8px}
@@ -290,9 +291,12 @@
     </div>
     <div class="dulce-grid">
       <div class="dulce-visual reveal">
+        <video class="dv-video" autoplay muted loop playsinline poster="dulzura-poster.jpg">
+          <source src="dulzura.mp4" type="video/mp4">
+        </video>
+        <div class="dv-shade"></div>
         <div class="frame"></div>
         <p>“La tomé sin azúcar<br>sin darme cuenta.”</p>
-        <div class="ph">Reemplazar por foto de taza / preparación</div>
       </div>
       <div class="dulce-card reveal">
         <h3>Balanceado · Tómatelo suave</h3>
