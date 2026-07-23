@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monte Aurora — Café de origen Caldas, dulce por naturaleza</title>
+<meta name="description" content="Café especial de Caldas, variedad Castillo Naranjal con doble fermentación anaeróbica. Puntaje 84, dulce sin azúcar añadido. Suscríbete y recibe café recién tostado de la finca, directo a tu casa.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal-950:#0a3a40;
+    --teal-900:#0e4a4f;
+    --teal-800:#125c60;
+    --gold:#c99a52;
+    --gold-deep:#a97e37;
+    --gold-soft:#e0c188;
+    --ivory:#fbf7ef;      /* fondo dominante claro */
+    --ivory-2:#f5eee1;
+    --sand:#efe6d4;
+    --ink:#213b3b;
+    --ink-soft:#4f6767;
+    --linea:rgba(33,59,59,.12);
+    --linea-gold:rgba(201,154,82,.45);
+    --r-btn:100px;
+    --r-card:22px;
+    --sombra:0 30px 70px -30px rgba(10,58,64,.4);
+    --sombra-soft:0 18px 44px -22px rgba(10,58,64,.28);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Manrope',system-ui,sans-serif;
+    color:var(--ink);
+    background:var(--ivory);
+    line-height:1.7;font-weight:400;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.serif{font-family:'Fraunces',Georgia,serif;font-weight:500;line-height:1.1;letter-spacing:-.01em}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 26px}
+  .eyebrow{font-size:.74rem;letter-spacing:.28em;text-transform:uppercase;font-weight:600;color:var(--gold-deep)}
+  .eyebrow.on-dark{color:var(--gold-soft)}
+  .divider{width:44px;height:2px;background:var(--gold);border-radius:2px;margin:0 auto 6px}
+
+  /* Reveal on scroll */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+  /* Botones */
+  .btn{
+    display:inline-flex;align-items:center;gap:.55rem;
+    font-family:'Manrope',sans-serif;font-weight:600;font-size:.92rem;letter-spacing:.02em;
+    border:none;cursor:pointer;padding:1rem 2rem;border-radius:var(--r-btn);transition:.25s all;white-space:nowrap;
+  }
+  .btn-primary{background:var(--gold);color:var(--teal-950);box-shadow:0 12px 26px -10px rgba(201,154,82,.6)}
+  .btn-primary:hover{background:var(--gold-soft);transform:translateY(-2px);box-shadow:0 18px 32px -10px rgba(201,154,82,.7)}
+  .btn-outline{background:transparent;color:var(--cream);border:1.5px solid var(--gold-soft);color:var(--gold-soft)}
+  .btn-outline:hover{background:var(--gold);color:var(--teal-950);border-color:var(--gold)}
+  .btn-ghost{background:var(--ivory);color:var(--teal-900);border:1.5px solid var(--linea)}
+  .btn-ghost:hover{border-color:var(--gold);color:var(--gold-deep)}
+
+  /* Nav */
+  header.nav{position:sticky;top:0;z-index:60;background:rgba(251,247,239,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--linea);transition:.3s}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:76px}
+  .brand{display:flex;align-items:center;gap:.7rem;color:var(--teal-900)}
+  .brand .logo{width:38px;height:38px;color:var(--gold-deep)}
+  .brand .name{font-family:'Fraunces',serif;font-weight:600;font-size:1.4rem;line-height:.9}
+  .brand .name small{display:block;font-family:'Manrope',sans-serif;font-size:.54rem;letter-spacing:.32em;color:var(--gold-deep);margin-top:3px;font-weight:600}
+  .nav-links{display:flex;gap:2rem;align-items:center;font-size:.9rem;font-weight:500;color:var(--ink-soft)}
+  .nav-links a:hover{color:var(--gold-deep)}
+  .nav-cta{padding:.7rem 1.5rem;font-size:.86rem}
+  @media(max-width:880px){.nav-links{display:none}}
+
+  /* Hero con video */
+  .hero{position:relative;overflow:hidden;min-height:92vh;display:flex;align-items:center;color:#fff}
+  .hero .bg{position:absolute;inset:0;z-index:0}
+  .hero .bg video,.hero .bg .fallback{width:100%;height:100%;object-fit:cover;display:block}
+  .hero .bg .fallback{background:
+    radial-gradient(120% 90% at 80% 10%, #176d6f 0%, #0e4a4f 45%, #0a3a40 100%)}
+  .hero .overlay{position:absolute;inset:0;z-index:1;background:
+    linear-gradient(105deg, rgba(8,52,58,.86) 0%, rgba(8,52,58,.55) 55%, rgba(8,52,58,.35) 100%)}
+  .hero .wrap{position:relative;z-index:2;width:100%;padding-top:60px;padding-bottom:60px}
+  .hero-inner{max-width:640px;will-change:transform}
+  .hero .stars{display:inline-flex;align-items:center;gap:.6rem;border:1px solid var(--linea-gold);padding:.5rem 1rem;border-radius:100px;font-size:.8rem;letter-spacing:.04em;margin-bottom:28px;color:var(--gold-soft);font-weight:600;backdrop-filter:blur(4px)}
+  .hero h1{font-size:clamp(2.9rem,6vw,4.8rem);color:#fff;margin-bottom:22px;font-weight:500;letter-spacing:-.02em}
+  .hero h1 em{font-style:italic;color:var(--gold-soft)}
+  .hero p.sub{font-size:1.2rem;max-width:40ch;color:#eaf3f0;font-weight:300;margin-bottom:6px}
+  .hero-cta{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-top:32px}
+  .hero-cta a.plain{color:var(--gold-soft);font-size:.92rem;font-weight:600;border-bottom:1px solid var(--linea-gold);padding-bottom:3px}
+  .scroll-hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:2;color:rgba(255,255,255,.7);font-size:.72rem;letter-spacing:.25em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:8px}
+  .scroll-hint span{width:1px;height:30px;background:linear-gradient(var(--gold-soft),transparent);animation:pulse 2s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:.3}50%{opacity:1}}
+  @media(max-width:880px){.hero{min-height:84vh}}
+
+  /* Franja confianza (clara) */
+  .trust{background:var(--ivory-2);border-bottom:1px solid var(--linea)}
+  .trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:26px 0}
+  .trust-item{display:flex;align-items:center;gap:.7rem;justify-content:center;font-size:.86rem;font-weight:500;padding:6px 12px;text-align:center;color:var(--ink-soft)}
+  .trust-item svg{flex:none;color:var(--gold-deep)}
+  @media(max-width:880px){.trust-grid{grid-template-columns:1fr 1fr;gap:18px}}
+
+  /* Secciones */
+  section.pad{padding:100px 0}
+  .center{text-align:center;max-width:680px;margin:0 auto 58px}
+  .center h2{font-size:clamp(2.2rem,4.2vw,3.3rem);margin:16px 0 14px;font-weight:500}
+  .center p{color:var(--ink-soft);font-size:1.1rem;font-weight:300}
+
+  /* Dulzura */
+  .dulce-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+  .dulce-visual{aspect-ratio:4/5;border-radius:var(--r-card);background:linear-gradient(160deg,#17696c,#0a3a40);
+    box-shadow:var(--sombra);position:relative;display:flex;align-items:center;justify-content:center;padding:40px;text-align:center;overflow:hidden}
+  .dulce-visual .frame{position:absolute;inset:16px;border:1px solid rgba(224,193,136,.35);border-radius:calc(var(--r-card) - 8px)}
+  .dulce-visual p{font-family:'Fraunces',serif;font-style:italic;font-size:1.7rem;color:#fbf7ef;line-height:1.35;position:relative;font-weight:400}
+  .dulce-visual .ph{position:absolute;bottom:16px;left:0;right:0;font-family:'Manrope',sans-serif;font-size:.64rem;letter-spacing:.14em;color:rgba(251,247,239,.45);text-transform:uppercase}
+  .dulce-card h3{font-size:2.1rem;margin-bottom:16px;font-weight:500}
+  .dulce-card > p{color:var(--ink-soft);font-weight:300;margin-bottom:22px;font-size:1.05rem}
+  .taste-tags{display:flex;flex-wrap:wrap;gap:11px;margin-bottom:8px}
+  .tag{background:var(--sand);border:1px solid var(--linea-gold);padding:.55rem 1.2rem;border-radius:100px;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gold-deep);font-weight:600}
+  .note{display:flex;gap:.9rem;align-items:flex-start;background:var(--teal-900);color:#f4ead0;border-radius:16px;padding:22px 24px;margin-top:28px;font-size:.96rem;font-weight:300}
+  .note svg{flex:none;color:var(--gold-soft);margin-top:2px}
+  .note strong{color:var(--gold-soft);font-weight:600}
+  @media(max-width:880px){.dulce-grid{grid-template-columns:1fr;gap:38px}}
+
+  /* Ficha / proceso (clara con parallax suave) */
+  .proceso{background:var(--ivory-2);position:relative;overflow:hidden}
+  .proceso .blob{position:absolute;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(201,154,82,.14),transparent 70%);top:-160px;right:-120px;z-index:0;will-change:transform}
+  .proceso .wrap{position:relative;z-index:1}
+  .ficha-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .ficha-cell{background:var(--ivory);border:1px solid var(--linea);border-radius:var(--r-card);padding:32px 24px;text-align:center;box-shadow:var(--sombra-soft)}
+  .ficha-cell .k{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:12px;font-weight:600}
+  .ficha-cell .v{font-family:'Fraunces',serif;font-size:1.6rem;color:var(--teal-900);line-height:1.15;font-weight:500}
+  .ficha-cell .v small{display:block;font-family:'Manrope',sans-serif;font-size:.8rem;color:var(--ink-soft);font-weight:400;letter-spacing:.01em;margin-top:6px}
+  @media(max-width:880px){.ficha-grid{grid-template-columns:1fr 1fr}}
+
+  /* Cómo funciona */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+  .step{text-align:center;padding:14px}
+  .step .num{width:60px;height:60px;border-radius:50%;border:1.5px solid var(--linea-gold);color:var(--gold-deep);font-family:'Fraunces',serif;font-weight:600;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin:0 auto 22px}
+  .step h3{font-size:1.6rem;margin-bottom:10px;font-weight:500}
+  .step p{color:var(--ink-soft);font-size:1rem;font-weight:300}
+  @media(max-width:880px){.steps{grid-template-columns:1fr;gap:36px}}
+
+  /* Planes (única sección teal rica) */
+  .planes{background:linear-gradient(165deg,#0e4a4f,#0a3a40);color:#f4ead0;position:relative;overflow:hidden}
+  .planes .center h2{color:#fff}
+  .planes .center p{color:#cfe0dc}
+  .plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch}
+  .plan{background:rgba(255,255,255,.045);border:1px solid rgba(224,193,136,.22);border-radius:var(--r-card);padding:36px 30px;display:flex;flex-direction:column;position:relative;backdrop-filter:blur(2px);transition:.3s}
+  .plan:hover{transform:translateY(-4px);border-color:rgba(224,193,136,.4)}
+  .plan.pop{background:rgba(224,193,136,.08);border:1.5px solid var(--gold);box-shadow:0 34px 70px -28px rgba(201,154,82,.45)}
+  .plan .badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--teal-950);font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.42rem 1.1rem;border-radius:100px}
+  .plan .off{position:absolute;top:28px;right:28px;font-family:'Fraunces',serif;font-size:1.6rem;color:var(--gold-soft);font-weight:600}
+  .plan h3{font-size:2rem;color:#fff;margin-bottom:4px;font-weight:500}
+  .plan .desc{color:#bcd0cc;font-size:.92rem;font-weight:300;min-height:46px;margin-bottom:20px}
+  .plan .price{font-family:'Fraunces',serif;font-size:2.7rem;color:#fff;line-height:1;font-weight:600}
+  .plan .price small{font-size:.92rem;color:#bcd0cc;font-weight:300;font-family:'Manrope',sans-serif}
+  .plan .ship{font-size:.82rem;color:var(--gold-soft);margin:10px 0 22px;display:flex;align-items:center;gap:.4rem;font-weight:500}
+  .plan ul{list-style:none;margin:0 0 28px;display:flex;flex-direction:column;gap:13px;font-size:.96rem;color:#dbe8e4;font-weight:300}
+  .plan li{display:flex;gap:.7rem;align-items:flex-start}
+  .plan li svg{flex:none;color:var(--gold);margin-top:4px}
+  .plan .btn{margin-top:auto;justify-content:center;width:100%}
+  .plan-note{text-align:center;color:#bcd0cc;font-size:.9rem;margin-top:30px;font-weight:300}
+  @media(max-width:880px){.plan-grid{grid-template-columns:1fr}}
+
+  /* Historia */
+  .historia-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:64px;align-items:center}
+  .historia-visual{aspect-ratio:1/1;border-radius:var(--r-card);background:linear-gradient(160deg,#17696c,#0a3a40);box-shadow:var(--sombra);position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .historia-visual .frame{position:absolute;inset:18px;border:1px solid rgba(224,193,136,.32);border-radius:calc(var(--r-card) - 8px)}
+  .historia-visual .lbl{position:absolute;bottom:18px;left:0;right:0;text-align:center;font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(251,247,239,.5)}
+  .historia-visual svg{width:130px;height:130px;color:var(--gold-soft);opacity:.9}
+  .historia h2{font-size:clamp(2.1rem,4vw,3rem);margin:14px 0 18px;font-weight:500}
+  .historia p{color:var(--ink-soft);margin-bottom:15px;font-size:1.08rem;font-weight:300}
+  .fact-row{display:flex;gap:38px;margin-top:28px;flex-wrap:wrap}
+  .fact .n{font-family:'Fraunces',serif;font-size:2.1rem;color:var(--gold-deep);font-weight:600}
+  .fact .l{font-size:.78rem;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft)}
+  @media(max-width:880px){.historia-grid{grid-template-columns:1fr;gap:36px}}
+
+  /* Fundadores (clara, tinte arena) */
+  .founders{background:linear-gradient(160deg,var(--sand),var(--ivory-2))}
+  .founders .inner{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center}
+  .founders h2{font-size:clamp(2rem,3.8vw,2.9rem);margin-bottom:16px;font-weight:500}
+  .founders > .inner > div > p{color:var(--ink-soft);font-size:1.06rem;margin-bottom:12px;font-weight:300}
+  .perk-list{display:flex;flex-direction:column;gap:14px}
+  .perk{display:flex;gap:.9rem;align-items:center;background:rgba(251,247,239,.7);border:1px solid var(--linea);border-radius:16px;padding:18px 22px;font-weight:400;font-size:1rem;box-shadow:var(--sombra-soft)}
+  .perk svg{flex:none;color:var(--gold-deep)}
+  @media(max-width:880px){.founders .inner{grid-template-columns:1fr;gap:32px}}
+
+  /* FAQ */
+  details{border-bottom:1px solid var(--linea);padding:6px 4px}
+  details summary{cursor:pointer;list-style:none;font-family:'Fraunces',serif;font-weight:500;padding:24px 0;display:flex;justify-content:space-between;align-items:center;font-size:1.4rem;gap:20px}
+  details summary::-webkit-details-marker{display:none}
+  details summary::after{content:"+";font-size:1.7rem;color:var(--gold-deep);font-weight:300;transition:.2s}
+  details[open] summary::after{content:"–"}
+  details p{color:var(--ink-soft);padding:0 0 24px;max-width:76ch;font-weight:300}
+
+  /* CTA final */
+  .final{background:linear-gradient(160deg,#125c60,#0a3a40);color:#f4ead0;text-align:center;padding:112px 0;position:relative;overflow:hidden}
+  .final .glow{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(224,193,136,.16),transparent 70%);top:-40%;left:50%;transform:translateX(-50%);z-index:0}
+  .final .wrap{position:relative;z-index:1}
+  .final h2{font-size:clamp(2.3rem,4.6vw,3.6rem);color:#fff;margin:14px 0 16px;font-weight:500}
+  .final h2 em{font-style:italic;color:var(--gold-soft)}
+  .final p{color:#eaf3f0;font-size:1.14rem;max-width:48ch;margin:0 auto 34px;font-weight:300}
+
+  /* Footer */
+  footer{background:var(--teal-950);color:#a9c1bd;padding:64px 0 34px;font-size:.92rem;font-weight:300}
+  .foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:44px;margin-bottom:42px}
+  footer .brand{color:#f4ead0}
+  footer .brand .logo{color:var(--gold-soft)}
+  footer .brand .name{color:#f4ead0}
+  footer .brand .name small{color:var(--gold-soft)}
+  footer h4{color:var(--gold-soft);font-weight:600;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:16px}
+  footer a{display:block;color:#a9c1bd;margin-bottom:10px}
+  footer a:hover{color:var(--gold-soft)}
+  .foot-bottom{border-top:1px solid rgba(201,154,82,.15);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:#7a9591;font-size:.84rem}
+</style>
+</head>
+<body>
+
+<!-- LOGO SVG reutilizable -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="ma-mountain" viewBox="0 0 100 100">
+    <path fill="none" stroke="currentColor" stroke-width="1.4" d="M8 74 L30 40 L42 56 L58 28 L72 50 L92 74"/>
+    <path fill="none" stroke="currentColor" stroke-width="1" d="M8 74 L26 56 L44 70 L62 48 L80 66 L92 74"/>
+    <circle cx="72" cy="22" r="7" fill="none" stroke="currentColor" stroke-width="1.2"/>
+  </symbol>
+</svg>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#">
+      <svg class="logo"><use href="#ma-mountain"/></svg>
+      <span class="name">Monte Aurora<small>Café de origen · Caldas</small></span>
+    </a>
+    <nav class="nav-links">
+      <a href="#dulzura">La dulzura</a>
+      <a href="#proceso">El proceso</a>
+      <a href="#planes">Suscripción</a>
+      <a href="#finca">La finca</a>
+    </nav>
+    <a href="#planes" class="btn btn-primary nav-cta">Suscribirme</a>
+  </div>
+</header>
+
+<!-- HERO con video -->
+<section class="hero">
+  <div class="bg">
+    <!-- hero.mp4 y hero-poster.jpg van junto a este index.html en el repo -->
+    <video autoplay muted loop playsinline poster="hero-poster.jpg">
+      <source src="hero.mp4" type="video/mp4">
+    </video>
+    <div class="fallback"></div>
+  </div>
+  <div class="overlay"></div>
+  <div class="wrap">
+    <div class="hero-inner" id="heroInner">
+      <div class="stars">★★★★★ &nbsp;Café de especialidad · Puntaje 84</div>
+      <h1>Café dulce por naturaleza, <em>de finca familiar</em></h1>
+      <p class="sub">Variedad Castillo Naranjal con doble fermentación anaeróbica. Dulce sin azúcar añadido — nunca la necesita.</p>
+      <div class="hero-cta">
+        <a href="#planes" class="btn btn-primary">Activar suscripción</a>
+        <a href="#planes" class="plain">o probar una bolsa</a>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint">Descubre<span></span></div>
+</section>
+
+<!-- TRUST -->
+<div class="trust">
+  <div class="wrap trust-grid">
+    <div class="trust-item"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l2.4 7.4H22l-6 4.4 2.3 7.2-6.3-4.6L5.7 21 8 14 2 9.6h7.6z"/></svg> Puntaje 84 de especialidad</div>
+    <div class="trust-item"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 8h14v8a4 4 0 01-4 4H8a4 4 0 01-4-4z"/><path d="M18 9h1a3 3 0 010 6h-1"/><path d="M8 2v2M12 2v2"/></svg> Tostado bajo pedido</div>
+    <div class="trust-item"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21h18M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg> Palestina, Caldas</div>
+    <div class="trust-item"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 3h15v13H1z"/><path d="M16 8h4l3 3v5h-7"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg> Envío incluido</div>
+  </div>
+</div>
+
+<!-- DULZURA -->
+<section class="pad" id="dulzura">
+  <div class="wrap">
+    <div class="center reveal">
+      <div class="divider"></div>
+      <span class="eyebrow">Nuestra diferencia</span>
+      <h2>Dulce porque el grano lo es</h2>
+      <p>La dulzura de Monte Aurora nace en la finca: altura, variedad y un proceso de fermentación cuidadoso. Una taza balanceada, suave, que no amarga y no pide azúcar.</p>
+    </div>
+    <div class="dulce-grid">
+      <div class="dulce-visual reveal">
+        <div class="frame"></div>
+        <p>“La tomé sin azúcar<br>sin darme cuenta.”</p>
+        <div class="ph">Reemplazar por foto de taza / preparación</div>
+      </div>
+      <div class="dulce-card reveal">
+        <h3>Balanceado · Tómatelo suave</h3>
+        <p>Notas dulces y redondas que definen el perfil de la casa:</p>
+        <div class="taste-tags">
+          <span class="tag">Caramelo</span>
+          <span class="tag">Panela</span>
+          <span class="tag">Caña</span>
+          <span class="tag">Miel</span>
+        </div>
+        <div class="note">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+          <div><strong>Para ser claros:</strong> Monte Aurora no lleva azúcar ni saborizantes añadidos. Toda la dulzura viene naturalmente del café.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FICHA / PROCESO -->
+<section class="pad proceso" id="proceso">
+  <div class="blob" id="procesoBlob"></div>
+  <div class="wrap">
+    <div class="center reveal">
+      <div class="divider"></div>
+      <span class="eyebrow">Ficha del café</span>
+      <h2>Un origen, un proceso, un carácter</h2>
+      <p>Variedad Castillo Naranjal con doble fermentación anaeróbica —en cereza y en mucílago— para conservar el sabor único de la casa.</p>
+    </div>
+    <div class="ficha-grid reveal">
+      <div class="ficha-cell"><div class="k">Variedad</div><div class="v">Castillo<small>Naranjal</small></div></div>
+      <div class="ficha-cell"><div class="k">Proceso</div><div class="v">Doble ferm.<small>Anaeróbica · cereza y mucílago</small></div></div>
+      <div class="ficha-cell"><div class="k">Altura</div><div class="v">1.630 m<small>Cuerpo medio · acidez media</small></div></div>
+      <div class="ficha-cell"><div class="k">Origen</div><div class="v">Palestina<small>Caldas · mujer caficultora</small></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CÓMO FUNCIONA -->
+<section class="pad" id="como">
+  <div class="wrap">
+    <div class="center reveal">
+      <div class="divider"></div>
+      <span class="eyebrow">Suscripción sin complicaciones</span>
+      <h2>Tu café, listo en tres pasos</h2>
+      <p>Tú eliges, nosotros tostamos y enviamos. Sin ataduras.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="num">I</div>
+        <h3>Elige tu plan</h3>
+        <p>Grano entero o molido, en la presentación y frecuencia que se acomode a tu consumo.</p>
+      </div>
+      <div class="step reveal">
+        <div class="num">II</div>
+        <h3>Recibe recién tostado</h3>
+        <p>Tostamos cada lote bajo pedido y lo enviamos a tu casa. Envío incluido en toda suscripción.</p>
+      </div>
+      <div class="step reveal">
+        <div class="num">III</div>
+        <h3>Pausa o cancela</h3>
+        <p>Ajusta la frecuencia, salta un mes o cancela cuando quieras. Sin permanencia.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLANES -->
+<section class="pad planes" id="planes">
+  <div class="wrap">
+    <div class="center reveal">
+      <div class="divider"></div>
+      <span class="eyebrow on-dark">Elige tu suscripción</span>
+      <h2>Un plan para cada nivel de amor por el café</h2>
+      <p>Precios con descuento de suscriptor y envío incluido. Cancela cuando quieras.</p>
+    </div>
+    <div class="plan-grid">
+
+      <div class="plan reveal">
+        <span class="off">−5%</span>
+        <h3>Aficionados</h3>
+        <p class="desc">Para arrancar el ritual: dos bolsas al mes para tu día a día.</p>
+        <div class="price">$68.664 <small>/ mes</small></div>
+        <div class="ship"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Envío incluido</div>
+        <ul>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> 2 bolsas de 340 g</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> 680 g de café al mes</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> 5% de descuento de suscriptor</li>
+        </ul>
+        <a href="#" class="btn btn-outline">Elegir Aficionados</a>
+      </div>
+
+      <div class="plan pop reveal">
+        <span class="badge">Más popular</span>
+        <span class="off">−13%</span>
+        <h3>Estilo de Vida</h3>
+        <p class="desc">El café es parte de tu casa: cuatro bolsas para que nunca falte.</p>
+        <div class="price">$135.408 <small>/ mes</small></div>
+        <div class="ship"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Envío incluido</div>
+        <ul>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> 4 bolsas de 340 g</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> 1.360 g de café al mes</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> 13% de descuento de suscriptor</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Mejor equilibrio precio / cantidad</li>
+        </ul>
+        <a href="#" class="btn btn-primary">Elegir Estilo de Vida</a>
+      </div>
+
+      <div class="plan reveal">
+        <span class="off">−30%</span>
+        <h3>Apasionados</h3>
+        <p class="desc">Máximo ahorro: la bolsa grande para quien no puede vivir sin buen café.</p>
+        <div class="price">$165.320 <small>/ mes</small></div>
+        <div class="ship"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Envío incluido</div>
+        <ul>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> 1 bolsa de 2.500 g (2,5 kg)</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> El mejor precio por gramo</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> 30% de descuento de suscriptor</li>
+        </ul>
+        <a href="#" class="btn btn-outline">Elegir Apasionados</a>
+      </div>
+
+    </div>
+    <p class="plan-note">¿Prefieres probar antes? También puedes pedir una bolsa suelta sin compromiso.</p>
+  </div>
+</section>
+
+<!-- HISTORIA -->
+<section class="pad" id="finca">
+  <div class="wrap historia-grid">
+    <div class="historia-visual reveal">
+      <div class="frame"></div>
+      <svg><use href="#ma-mountain"/></svg>
+      <div class="lbl">Reemplazar por foto real de la finca</div>
+    </div>
+    <div class="reveal">
+      <div class="divider" style="margin:0 0 6px"></div>
+      <span class="eyebrow">La finca</span>
+      <h2>Cultivado por una mujer caficultora, en Palestina</h2>
+      <p>Monte Aurora no es un café de bodega. Es la cosecha de una finca familiar en Palestina, Caldas, cultivada con el cuidado de quien conoce cada mata por su nombre.</p>
+      <p>Cada bolsa que recibes es ese trabajo llegando directo a tu taza — sin intermediarios que diluyan la calidad ni la historia.</p>
+      <div class="fact-row">
+        <div class="fact"><div class="n">84</div><div class="l">Puntaje especialidad</div></div>
+        <div class="fact"><div class="n">1.630 m</div><div class="l">De altura</div></div>
+        <div class="fact"><div class="n">0 g</div><div class="l">Azúcar añadido</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FUNDADORES -->
+<section class="pad founders">
+  <div class="wrap inner">
+    <div class="reveal">
+      <div class="divider" style="margin:0 0 6px"></div>
+      <span class="eyebrow">Estamos empezando</span>
+      <h2>Sé de los primeros en suscribirte</h2>
+      <p>Monte Aurora acaba de abrir sus puertas. Los primeros suscriptores no solo reciben el café: acompañan a una finca familiar en su primer capítulo.</p>
+      <p>Por eso a nuestros miembros fundadores los cuidamos distinto.</p>
+    </div>
+    <div class="perk-list reveal">
+      <div class="perk"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l2.4 7.4H22l-6 4.4 2.3 7.2-6.3-4.6L5.7 21 8 14 2 9.6h7.6z"/></svg> Precio fundador bloqueado mientras sigas suscrito</div>
+      <div class="perk"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 12v8H4v-8"/><path d="M2 7h20v5H2z"/><path d="M12 22V7"/></svg> Acceso primero a los lotes limitados de cada cosecha</div>
+      <div class="perk"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16v12H5.2L4 17.5z"/></svg> Trato directo con la familia detrás del café</div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="pad">
+  <div class="wrap" style="max-width:840px">
+    <div class="center reveal">
+      <div class="divider"></div>
+      <span class="eyebrow">Preguntas frecuentes</span>
+      <h2>Lo que quizás te estás preguntando</h2>
+    </div>
+    <div class="reveal">
+    <details open>
+      <summary>¿De verdad no tiene azúcar?</summary>
+      <p>Correcto. Monte Aurora no lleva azúcar ni saborizantes añadidos. La sensación dulce —caramelo, panela, caña, miel— viene 100% del grano, gracias a la altura, la variedad y la doble fermentación. Es café puro de especialidad.</p>
+    </details>
+    <details>
+      <summary>¿Qué significa doble fermentación anaeróbica?</summary>
+      <p>Es un proceso especial en el que el café fermenta sin oxígeno en dos etapas —en cereza y en mucílago— para desarrollar y conservar el perfil dulce y único de Monte Aurora. Es lo que hace que la taza sea tan redonda y característica.</p>
+    </details>
+    <details>
+      <summary>¿Cada cuánto me llega y cuándo me cobran?</summary>
+      <p>Tú eliges la frecuencia al suscribirte (por defecto, mensual). El cobro se hace al inicio de cada ciclo, justo antes de tostar y despachar tu pedido para que llegue lo más fresco posible.</p>
+    </details>
+    <details>
+      <summary>¿Puedo cambiar la molienda o el plan?</summary>
+      <p>Sí. Puedes cambiar entre grano entero y molido, ajustar la presentación o subir/bajar de plan desde tu cuenta, en cualquier momento y sin costo.</p>
+    </details>
+    <details>
+      <summary>¿Cómo pauso o cancelo?</summary>
+      <p>Con un clic desde tu cuenta. Puedes saltar un mes, pausar o cancelar cuando quieras. No hay permanencia ni penalidades.</p>
+    </details>
+    <details>
+      <summary>¿El envío está incluido?</summary>
+      <p>Sí, todos los planes de suscripción incluyen el envío en el precio que ves. Sin sorpresas al final.</p>
+    </details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="final">
+  <div class="glow"></div>
+  <div class="wrap reveal">
+    <svg style="width:64px;height:64px;color:var(--gold-soft);margin-bottom:6px"><use href="#ma-mountain"/></svg>
+    <span class="eyebrow on-dark">Empieza hoy</span>
+    <h2>Tu próxima taza dulce <em>ya está en camino</em></h2>
+    <p>Activa tu suscripción y recibe el café de nuestra finca, recién tostado, sin moverte de casa.</p>
+    <a href="#planes" class="btn btn-primary">Activar mi suscripción</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="#" style="margin-bottom:18px">
+          <svg class="logo"><use href="#ma-mountain"/></svg>
+          <span class="name">Monte Aurora<small>Café de origen · Caldas</small></span>
+        </a>
+        <p style="max-width:36ch;color:#7a9591">Café especial dulce por naturaleza, de finca familiar en Palestina, Caldas. Directo a tu taza.</p>
+      </div>
+      <div>
+        <h4>Explora</h4>
+        <a href="#dulzura">La dulzura</a>
+        <a href="#proceso">El proceso</a>
+        <a href="#planes">Suscripción</a>
+        <a href="#finca">La finca</a>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <a href="#">Instagram</a>
+        <a href="#">WhatsApp</a>
+        <a href="#">Escríbenos</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Monte Aurora · Café de origen Caldas</span>
+      <span>Puntaje 84 · Dulce sin azúcar añadido</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.14, rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // Parallax suave (respeta reduce-motion)
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduce){
+    const hero = document.getElementById('heroInner');
+    const blob = document.getElementById('procesoBlob');
+    let ticking = false;
+    window.addEventListener('scroll', ()=>{
+      if(ticking) return;
+      ticking = true;
+      requestAnimationFrame(()=>{
+        const y = window.scrollY;
+        if(hero && y < window.innerHeight){
+          hero.style.transform = 'translateY('+ (y * 0.18) +'px)';
+          hero.style.opacity = String(Math.max(0, 1 - y/650));
+        }
+        if(blob){
+          const r = blob.getBoundingClientRect();
+          if(r.bottom > 0 && r.top < window.innerHeight){
+            blob.style.transform = 'translateY('+ ((window.innerHeight - r.top) * -0.06) +'px)';
+          }
+        }
+        ticking = false;
+      });
+    }, {passive:true});
+  }
+</script>
+
+</body>
+</html>
