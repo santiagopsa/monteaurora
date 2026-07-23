@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Monte Aurora — Café de origen Caldas, dulce por naturaleza</title>
 <meta name="description" content="Café especial de Caldas, variedad Castillo Naranjal con doble fermentación anaeróbica. Puntaje 84, dulce sin azúcar añadido. Suscríbete y recibe café recién tostado de la finca, directo a tu casa.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#0a3a40">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -153,25 +157,25 @@
   .plan:hover{transform:translateY(-4px);border-color:rgba(224,193,136,.4)}
   .plan.pop{background:rgba(224,193,136,.08);border:1.5px solid var(--gold);box-shadow:0 34px 70px -28px rgba(201,154,82,.45)}
   .plan .badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--teal-950);font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.42rem 1.1rem;border-radius:100px}
-  .plan .off{position:absolute;top:28px;right:28px;font-family:'Fraunces',serif;font-size:1.6rem;color:var(--gold-soft);font-weight:600}
-  .plan h3{font-size:2rem;color:#fff;margin-bottom:4px;font-weight:500}
-  .plan .desc{color:#bcd0cc;font-size:.92rem;font-weight:300;min-height:46px;margin-bottom:20px}
-  .plan .price{font-family:'Fraunces',serif;font-size:2.7rem;color:#fff;line-height:1;font-weight:600}
-  .plan .price small{font-size:.92rem;color:#bcd0cc;font-weight:300;font-family:'Manrope',sans-serif}
-  .plan .ship{font-size:.82rem;color:var(--gold-soft);margin:10px 0 22px;display:flex;align-items:center;gap:.4rem;font-weight:500}
-  .plan ul{list-style:none;margin:0 0 28px;display:flex;flex-direction:column;gap:13px;font-size:.96rem;color:#dbe8e4;font-weight:300}
-  .plan li{display:flex;gap:.7rem;align-items:flex-start}
-  .plan li svg{flex:none;color:var(--gold);margin-top:4px}
+  .plan h3{font-size:1.9rem;color:#fff;margin-bottom:6px;font-weight:500}
+  .plan .desc{color:#bcd0cc;font-size:.94rem;font-weight:300;min-height:48px;margin-bottom:24px}
+  .plan .price{font-family:'Fraunces',serif;font-size:2.9rem;color:#fff;line-height:1;font-weight:600}
+  .plan .price small{font-size:.95rem;color:#bcd0cc;font-weight:300;font-family:'Manrope',sans-serif}
+  .plan .meta{margin:14px 0 4px;padding-top:18px;border-top:1px solid rgba(224,193,136,.18);color:#dbe8e4;font-size:.96rem;font-weight:400;line-height:1.5}
+  .plan .meta span{color:#9fb6b1;font-weight:300}
+  .plan .ship{font-size:.84rem;color:var(--gold-soft);margin:6px 0 26px;display:flex;align-items:center;gap:.45rem;font-weight:500}
   .plan .btn{margin-top:auto;justify-content:center;width:100%}
   .plan-note{text-align:center;color:#bcd0cc;font-size:.9rem;margin-top:30px;font-weight:300}
   @media(max-width:880px){.plan-grid{grid-template-columns:1fr}}
 
   /* Historia */
   .historia-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:64px;align-items:center}
-  .historia-visual{aspect-ratio:1/1;border-radius:var(--r-card);background:linear-gradient(160deg,#17696c,#0a3a40);box-shadow:var(--sombra);position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
-  .historia-visual .frame{position:absolute;inset:18px;border:1px solid rgba(224,193,136,.32);border-radius:calc(var(--r-card) - 8px)}
-  .historia-visual .lbl{position:absolute;bottom:18px;left:0;right:0;text-align:center;font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(251,247,239,.5)}
-  .historia-visual svg{width:130px;height:130px;color:var(--gold-soft);opacity:.9}
+  .historia-visual{aspect-ratio:1/1;border-radius:var(--r-card);background:linear-gradient(160deg,#17696c,#0a3a40);box-shadow:var(--sombra);position:relative;overflow:hidden}
+  .historia-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+  .historia-visual .shade{position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(8,52,58,.75) 0%,rgba(8,52,58,0) 42%)}
+  .historia-visual .frame{position:absolute;inset:18px;z-index:2;border:1px solid rgba(224,193,136,.55);border-radius:calc(var(--r-card) - 8px);pointer-events:none}
+  .historia-visual .lbl{position:absolute;z-index:3;bottom:28px;left:50%;transform:translateX(-50%);display:inline-flex;align-items:center;gap:.5rem;background:rgba(8,52,58,.5);backdrop-filter:blur(6px);border:1px solid rgba(224,193,136,.4);padding:.5rem 1.1rem;border-radius:100px;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#f4ead0;font-weight:500;white-space:nowrap}
+  .historia-visual .lbl svg{width:15px;height:15px;color:var(--gold-soft)}
   .historia h2{font-size:clamp(2.1rem,4vw,3rem);margin:14px 0 18px;font-weight:500}
   .historia p{color:var(--ink-soft);margin-bottom:15px;font-size:1.08rem;font-weight:300}
   .fact-row{display:flex;gap:38px;margin-top:28px;flex-wrap:wrap}
@@ -376,47 +380,31 @@
     <div class="plan-grid">
 
       <div class="plan reveal">
-        <span class="off">−5%</span>
         <h3>Aficionados</h3>
-        <p class="desc">Para arrancar el ritual: dos bolsas al mes para tu día a día.</p>
+        <p class="desc">Para arrancar el ritual, con café para tu día a día.</p>
         <div class="price">$68.664 <small>/ mes</small></div>
         <div class="ship"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Envío incluido</div>
-        <ul>
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> 2 bolsas de 340 g</li>
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> 680 g de café al mes</li>
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> 5% de descuento de suscriptor</li>
-        </ul>
-        <a href="#" class="btn btn-outline">Elegir Aficionados</a>
+        <div class="meta">2 bolsas de 340 g <span>· 680 g al mes</span></div>
+        <a href="#" class="btn btn-outline">Elegir plan</a>
       </div>
 
       <div class="plan pop reveal">
         <span class="badge">Más popular</span>
-        <span class="off">−13%</span>
         <h3>Estilo de Vida</h3>
-        <p class="desc">El café es parte de tu casa: cuatro bolsas para que nunca falte.</p>
+        <p class="desc">El café como parte de tu casa, para que nunca falte.</p>
         <div class="price">$135.408 <small>/ mes</small></div>
         <div class="ship"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Envío incluido</div>
-        <ul>
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> 4 bolsas de 340 g</li>
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> 1.360 g de café al mes</li>
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> 13% de descuento de suscriptor</li>
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Mejor equilibrio precio / cantidad</li>
-        </ul>
-        <a href="#" class="btn btn-primary">Elegir Estilo de Vida</a>
+        <div class="meta">4 bolsas de 340 g <span>· 1.360 g al mes</span></div>
+        <a href="#" class="btn btn-primary">Elegir plan</a>
       </div>
 
       <div class="plan reveal">
-        <span class="off">−30%</span>
         <h3>Apasionados</h3>
-        <p class="desc">Máximo ahorro: la bolsa grande para quien no puede vivir sin buen café.</p>
+        <p class="desc">La bolsa grande, con el mejor precio por gramo.</p>
         <div class="price">$165.320 <small>/ mes</small></div>
         <div class="ship"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Envío incluido</div>
-        <ul>
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> 1 bolsa de 2.500 g (2,5 kg)</li>
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> El mejor precio por gramo</li>
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> 30% de descuento de suscriptor</li>
-        </ul>
-        <a href="#" class="btn btn-outline">Elegir Apasionados</a>
+        <div class="meta">1 bolsa de 2.500 g <span>· 2,5 kg al mes</span></div>
+        <a href="#" class="btn btn-outline">Elegir plan</a>
       </div>
 
     </div>
@@ -428,9 +416,10 @@
 <section class="pad" id="finca">
   <div class="wrap historia-grid">
     <div class="historia-visual reveal">
+      <img src="finca.jpg" alt="Finca Alto Bonito, jardines y kiosco de guadua en Palestina, Caldas" loading="lazy">
+      <div class="shade"></div>
       <div class="frame"></div>
-      <svg><use href="#ma-mountain"/></svg>
-      <div class="lbl">Reemplazar por foto real de la finca</div>
+      <div class="lbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-6.3-7-11a7 7 0 0114 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg> Finca Alto Bonito · Palestina, Caldas</div>
     </div>
     <div class="reveal">
       <div class="divider" style="margin:0 0 6px"></div>
