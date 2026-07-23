@@ -430,10 +430,10 @@
         <div class="meta">2 bolsas de 340 g <span>· 680 g al mes</span></div>
         <div class="grind-label">Presentación</div>
         <div class="grind" role="group" aria-label="Presentación">
-          <button type="button" class="active">Grano</button>
-          <button type="button">Molido</button>
+          <button type="button" class="active" data-link="https://buy.stripe.com/14A6oH4lt8pcghFg748g00a">Grano</button>
+          <button type="button" data-link="https://buy.stripe.com/3cIcN5g4bdJwe9xaMK8g009">Molido</button>
         </div>
-        <a href="#" class="btn btn-outline">Elegir plan</a>
+        <a href="https://buy.stripe.com/14A6oH4lt8pcghFg748g00a" target="_blank" rel="noopener" class="btn btn-outline plan-cta">Elegir plan</a>
       </div>
 
       <div class="plan pop reveal">
@@ -445,10 +445,10 @@
         <div class="meta">4 bolsas de 340 g <span>· 1.360 g al mes</span></div>
         <div class="grind-label">Presentación</div>
         <div class="grind" role="group" aria-label="Presentación">
-          <button type="button" class="active">Grano</button>
-          <button type="button">Molido</button>
+          <button type="button" class="active" data-link="https://buy.stripe.com/bJe00j2dlaxk2qP8EC8g008">Grano</button>
+          <button type="button" data-link="https://buy.stripe.com/bJe7sL19hcFs1mL0868g007">Molido</button>
         </div>
-        <a href="#" class="btn btn-primary">Elegir plan</a>
+        <a href="https://buy.stripe.com/bJe00j2dlaxk2qP8EC8g008" target="_blank" rel="noopener" class="btn btn-primary plan-cta">Elegir plan</a>
       </div>
 
       <div class="plan reveal">
@@ -458,7 +458,7 @@
         <div class="ship"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Envío incluido</div>
         <div class="meta">1 bolsa de 2.500 g <span>· 2,5 kg al mes</span></div>
         <div class="grind-static"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12h8"/></svg> Solo en grano</div>
-        <a href="#" class="btn btn-outline">Elegir plan</a>
+        <a href="https://buy.stripe.com/7sY8wPg4beNAd5t3ki8g006" target="_blank" rel="noopener" class="btn btn-outline">Elegir plan</a>
       </div>
 
     </div>
@@ -596,12 +596,14 @@
   },{threshold:.14, rootMargin:'0px 0px -8% 0px'});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-  // Selector Grano / Molido
+  // Selector Grano / Molido — actualiza el link de pago del botón del plan
   document.querySelectorAll('.grind').forEach(group=>{
+    const cta = group.parentElement.querySelector('.plan-cta');
     group.querySelectorAll('button').forEach(btn=>{
       btn.addEventListener('click',()=>{
         group.querySelectorAll('button').forEach(b=>b.classList.remove('active'));
         btn.classList.add('active');
+        if(cta && btn.dataset.link){ cta.setAttribute('href', btn.dataset.link); }
       });
     });
   });
