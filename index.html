@@ -242,6 +242,8 @@
   details summary::after{content:"+";font-size:1.7rem;color:var(--gold-deep);font-weight:300;transition:.2s}
   details[open] summary::after{content:"–"}
   details p{color:var(--ink-soft);padding:0 0 24px;max-width:76ch;font-weight:300}
+  details p a{color:var(--gold-deep);text-decoration:underline;text-underline-offset:3px;font-weight:500}
+  details p a:hover{color:var(--teal-800)}
 
   /* CTA final */
   .final{background:linear-gradient(160deg,#125c60,#0a3a40);color:#f4ead0;text-align:center;padding:112px 0;position:relative;overflow:hidden}
@@ -620,7 +622,7 @@
     </details>
     <details>
       <summary>¿Cómo pauso o cancelo?</summary>
-      <p>Con un clic desde tu cuenta. Puedes saltar un mes, pausar o cancelar cuando quieras. No hay permanencia ni penalidades.</p>
+      <p>Tú tienes el control total: entra al <a href="https://billing.stripe.com/p/login/bJe28rg4b6h4aXl1ca8g000" target="_blank" rel="noopener">portal de suscriptor</a>, ingresa tu correo y podrás pausar, saltar un mes o cancelar cuando quieras — sin permanencia ni penalidades. También encuentras ese acceso en cada correo de confirmación de Stripe.</p>
     </details>
     <details>
       <summary>¿El envío está incluido?</summary>
@@ -661,7 +663,8 @@
         <a href="#finca">La finca</a>
       </div>
       <div>
-        <h4>Contacto</h4>
+        <h4>Suscriptores</h4>
+        <a href="https://billing.stripe.com/p/login/bJe28rg4b6h4aXl1ca8g000" target="_blank" rel="noopener">Gestionar mi suscripción</a>
         <a href="#">Instagram</a>
         <a href="#">WhatsApp</a>
         <a href="#">Escríbenos</a>
