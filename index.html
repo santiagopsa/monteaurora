@@ -139,6 +139,27 @@
   .ficha-cell .v{font-family:'Fraunces',serif;font-size:1.6rem;color:var(--teal-900);line-height:1.15;font-weight:500}
   .ficha-cell .v small{display:block;font-family:'Manrope',sans-serif;font-size:.8rem;color:var(--ink-soft);font-weight:400;letter-spacing:.01em;margin-top:6px}
   @media(max-width:880px){.ficha-grid{grid-template-columns:1fr 1fr}}
+  /* Recorrido del proceso */
+  .journey{max-width:720px;margin:72px auto 0}
+  .journey-intro{text-align:center;max-width:600px;margin:0 auto 48px}
+  .journey-intro h3{font-size:clamp(1.7rem,3.2vw,2.3rem);font-weight:500;margin:12px 0 12px}
+  .journey-intro p{color:var(--ink-soft);font-weight:300;font-size:1.05rem}
+  .timeline{position:relative;padding-left:8px}
+  .timeline::before{content:"";position:absolute;left:31px;top:10px;bottom:34px;width:1px;background:linear-gradient(var(--gold),rgba(201,154,82,.15))}
+  .jstep{position:relative;padding-left:78px;padding-bottom:38px}
+  .jstep:last-child{padding-bottom:0}
+  .jstep .dot{position:absolute;left:8px;top:-2px;width:48px;height:48px;border-radius:50%;border:1px solid var(--linea-gold);background:var(--ivory);display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:600;font-size:1.2rem;color:var(--gold-deep);box-shadow:var(--sombra-soft);z-index:1}
+  .jstep h4{font-family:'Fraunces',serif;font-weight:500;font-size:1.4rem;margin-bottom:6px;letter-spacing:-.01em}
+  .jstep p{color:var(--ink-soft);font-weight:300;font-size:1.02rem;line-height:1.65}
+  .jstep .tag-mini{display:inline-block;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-deep);font-weight:600;margin-bottom:6px}
+  .journey-close{margin-top:48px;position:relative;overflow:hidden;border-radius:var(--r-card);padding:72px 34px;text-align:center;color:#f4ead0;box-shadow:var(--sombra)}
+  .journey-close img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+  .journey-close .ov{position:absolute;inset:0;z-index:1;background:linear-gradient(rgba(8,52,58,.8),rgba(8,52,58,.9))}
+  .journey-close .frame{position:absolute;inset:16px;z-index:2;border:1px solid rgba(224,193,136,.4);border-radius:calc(var(--r-card) - 8px)}
+  .journey-close .inner{position:relative;z-index:3}
+  .journey-close p{font-family:'Fraunces',serif;font-style:italic;font-size:1.5rem;font-weight:400;line-height:1.45;max-width:46ch;margin:14px auto 0;text-shadow:0 2px 20px rgba(8,52,58,.5)}
+  .journey-close p strong{color:var(--gold-soft);font-style:normal;font-weight:600}
+  @media(max-width:880px){.jstep{padding-left:70px}.jstep .dot{width:44px;height:44px}.timeline::before{left:29px}}
 
   /* Cómo funciona */
   .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
@@ -355,6 +376,69 @@
       <div class="ficha-cell"><div class="k">Proceso</div><div class="v">Doble ferm.<small>Anaeróbica · cereza y mucílago</small></div></div>
       <div class="ficha-cell"><div class="k">Altura</div><div class="v">1.630 m<small>Cuerpo medio · acidez media</small></div></div>
       <div class="ficha-cell"><div class="k">Origen</div><div class="v">Palestina<small>Caldas · mujer caficultora</small></div></div>
+    </div>
+
+    <div class="journey">
+      <div class="journey-intro reveal">
+        <span class="eyebrow">De la semilla a tu taza</span>
+        <h3>El sabor no se improvisa: se construye</h3>
+        <p>Detrás de cada taza dulce hay un trabajo obsesivo. En Monte Aurora ninguna etapa se deja al azar — así es el camino que recorre cada grano antes de llegar a ti.</p>
+      </div>
+
+      <div class="timeline">
+        <div class="jstep reveal">
+          <div class="dot">1</div>
+          <span class="tag-mini">La semilla</span>
+          <h4>Empezamos por lo mejor</h4>
+          <p>Todo nace eligiendo las mejores semillas de la variedad Castillo Naranjal, seleccionada por su resistencia y, sobre todo, por su perfil naturalmente dulce. Si la semilla no es excepcional, el resto no importa.</p>
+        </div>
+        <div class="jstep reveal">
+          <div class="dot">2</div>
+          <span class="tag-mini">Siembra y abonada</span>
+          <h4>Un suelo sano para un café dulce</h4>
+          <p>Sembramos y nutrimos cada planta con abonos cuidadosamente dosificados, respetando los tiempos de la tierra a 1.630 metros de altura. La dulzura de un café empieza mucho antes de la cosecha: empieza en la raíz.</p>
+        </div>
+        <div class="jstep reveal">
+          <div class="dot">3</div>
+          <span class="tag-mini">Recolección selectiva</span>
+          <h4>Grano a grano, solo el punto exacto</h4>
+          <p>Recogemos a mano, cereza por cereza, únicamente los frutos en su punto perfecto de madurez. Nada de recolección masiva: si una cereza no está lista, se queda en el árbol esperando su momento.</p>
+        </div>
+        <div class="jstep reveal">
+          <div class="dot">4</div>
+          <span class="tag-mini">El beneficio</span>
+          <h4>Precisión el mismo día</h4>
+          <p>El día de la cosecha despulpamos y clasificamos cada lote con precisión, separando los granos por densidad en agua para descartar los livianos y dejar solo el café de mayor peso y calidad. Cada detalle cuenta.</p>
+        </div>
+        <div class="jstep reveal">
+          <div class="dot">5</div>
+          <span class="tag-mini">Doble fermentación anaeróbica</span>
+          <h4>El corazón del proceso</h4>
+          <p>Aquí está el secreto. Fermentamos sin oxígeno en dos etapas —primero en cereza y luego en mucílago— controlando tiempo y temperatura con obsesión. Es un proceso delicado, difícil de dominar y casi imposible de replicar; una hora de más o un grado de diferencia cambian todo. De aquí sale la dulzura y el carácter único de Monte Aurora.</p>
+        </div>
+        <div class="jstep reveal">
+          <div class="dot">6</div>
+          <span class="tag-mini">Selección final a mano</span>
+          <h4>Lo mejor de lo mejor</h4>
+          <p>Después del secado, una última selección manual, grano por grano, para apartar cualquier defecto y dejar únicamente la élite de la cosecha. Lo que llega a tu taza es una fracción muy pequeña de todo lo que se cultivó.</p>
+        </div>
+        <div class="jstep reveal">
+          <div class="dot">7</div>
+          <span class="tag-mini">El tueste</span>
+          <h4>La magia final</h4>
+          <p>Tostamos en pequeños lotes y perfilamos cada tueste para resaltar —sin esconder— la dulzura natural del grano. Ni muy claro ni muy oscuro: el punto justo para que se sientan el caramelo y la panela. Todo el trabajo anterior se juega aquí, en minutos.</p>
+        </div>
+      </div>
+
+      <div class="journey-close reveal">
+        <img src="tueste.jpg" alt="Tueste artesanal del café Monte Aurora en pequeños lotes" loading="lazy">
+        <div class="ov"></div>
+        <div class="frame"></div>
+        <div class="inner">
+          <span class="eyebrow on-dark">Del grano a tu taza</span>
+          <p>Por eso es <strong>dulce sin azúcar</strong>. No es un truco ni un aditivo: es el resultado de hacer cada uno de estos pasos con obsesión.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
