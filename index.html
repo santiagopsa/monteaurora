@@ -96,6 +96,9 @@
   .brand .logo{width:38px;height:38px;color:var(--gold-deep)}
   .brand .name{font-family:'Playfair Display',serif;font-weight:600;font-size:1.4rem;line-height:.9}
   .brand .name small{display:block;font-family:'Source Sans 3',sans-serif;font-size:.54rem;letter-spacing:.32em;color:var(--gold-deep);margin-top:3px;font-weight:600}
+  .brand-logo{height:48px;width:auto;display:block}
+  .brand-logo-foot{height:62px}
+  @media(max-width:880px){.brand-logo{height:42px}}
   .nav-links{display:flex;gap:2rem;align-items:center;font-size:.9rem;font-weight:500;color:var(--ink-soft)}
   .nav-links a:hover{color:var(--gold-deep)}
   .nav-cta{padding:.7rem 1.5rem;font-size:.86rem}
@@ -307,9 +310,8 @@
 <!-- NAV -->
 <header class="nav">
   <div class="wrap nav-inner">
-    <a class="brand" href="#">
-      <svg class="logo"><use href="#ma-mountain"/></svg>
-      <span class="name">Monte Aurora<small>Café de origen · Caldas</small></span>
+    <a class="brand" href="#" aria-label="Monte Aurora — Café de origen Caldas">
+      <img src="logo-teal.png" alt="Monte Aurora — Café de origen Caldas" class="brand-logo">
     </a>
     <nav class="nav-links">
       <a href="#dulzura">La dulzura</a>
@@ -704,9 +706,8 @@
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <a class="brand" href="#" style="margin-bottom:18px">
-          <svg class="logo"><use href="#ma-mountain"/></svg>
-          <span class="name">Monte Aurora<small>Café de origen · Caldas</small></span>
+        <a class="brand" href="#" style="margin-bottom:18px" aria-label="Monte Aurora">
+          <img src="logo-cream.png" alt="Monte Aurora" class="brand-logo brand-logo-foot">
         </a>
         <p style="max-width:38ch;color:#7a9591">Suscripción de café especial en Colombia. Café de origen de Caldas, dulce por naturaleza, de nuestra finca en Palestina directo a tu taza.</p>
       </div>
