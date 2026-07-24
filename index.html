@@ -110,14 +110,17 @@
   .hero .bg video,.hero .bg .fallback{width:100%;height:100%;object-fit:cover;display:block}
   .hero .bg .fallback{background:
     radial-gradient(120% 90% at 80% 10%, #176d6f 0%, #0e4a4f 45%, #0a3a40 100%)}
+  .hero .bg video,.hero .bg .fallback{filter:saturate(1.05)}
   .hero .overlay{position:absolute;inset:0;z-index:1;background:
-    linear-gradient(105deg, rgba(8,52,58,.86) 0%, rgba(8,52,58,.55) 55%, rgba(8,52,58,.35) 100%)}
+    linear-gradient(100deg, rgba(8,52,58,.68) 0%, rgba(8,52,58,.4) 34%, rgba(8,52,58,.12) 58%, rgba(8,52,58,0) 82%),
+    linear-gradient(0deg, rgba(8,52,58,.35) 0%, rgba(8,52,58,0) 30%)}
   .hero .wrap{position:relative;z-index:2;width:100%;padding-top:60px;padding-bottom:60px}
   .hero-inner{max-width:640px;will-change:transform}
   .hero .stars{display:inline-flex;align-items:center;gap:.6rem;border:1px solid var(--linea-gold);padding:.5rem 1rem;border-radius:100px;font-size:.8rem;letter-spacing:.04em;margin-bottom:28px;color:var(--gold-soft);font-weight:600;backdrop-filter:blur(4px)}
-  .hero h1{font-size:clamp(2.9rem,6vw,4.8rem);color:#fff;margin-bottom:22px;font-weight:500;letter-spacing:-.02em}
-  .hero h1 em{font-style:italic;color:var(--gold-soft)}
-  .hero p.sub{font-size:1.2rem;max-width:40ch;color:#eaf3f0;font-weight:300;margin-bottom:6px}
+  .hero h1{font-size:clamp(2.9rem,6vw,4.8rem);color:#fff;margin-bottom:22px;font-weight:500;letter-spacing:-.02em;text-shadow:0 2px 30px rgba(8,52,58,.55),0 1px 4px rgba(8,52,58,.4)}
+  .hero h1 em{font-style:normal;color:var(--gold-soft)}
+  .hero p.sub{font-size:1.2rem;max-width:40ch;color:#f2f8f5;font-weight:300;margin-bottom:6px;text-shadow:0 1px 16px rgba(8,52,58,.6)}
+  .hero .stars{text-shadow:none}
   .hero-cta{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-top:32px}
   .hero-cta a.plain{color:var(--gold-soft);font-size:.92rem;font-weight:600;border-bottom:1px solid var(--linea-gold);padding-bottom:3px}
   .scroll-hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:2;color:rgba(255,255,255,.7);font-size:.72rem;letter-spacing:.25em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:8px}
@@ -229,8 +232,8 @@
 
   /* Historia */
   .historia-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:64px;align-items:center}
-  .historia-visual{aspect-ratio:1/1;border-radius:var(--r-card);background:linear-gradient(160deg,#17696c,#0a3a40);box-shadow:var(--sombra);position:relative;overflow:hidden}
-  .historia-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+  .historia-visual{aspect-ratio:4/5;border-radius:var(--r-card);background:linear-gradient(160deg,#17696c,#0a3a40);box-shadow:var(--sombra);position:relative;overflow:hidden}
+  .historia-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 22%;z-index:0}
   .historia-visual .shade{position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(8,52,58,.75) 0%,rgba(8,52,58,0) 42%)}
   .historia-visual .frame{position:absolute;inset:18px;z-index:2;border:1px solid rgba(224,193,136,.55);border-radius:calc(var(--r-card) - 8px);pointer-events:none}
   .historia-visual .lbl{position:absolute;z-index:3;bottom:28px;left:50%;transform:translateX(-50%);display:inline-flex;align-items:center;gap:.5rem;background:rgba(8,52,58,.5);backdrop-filter:blur(6px);border:1px solid rgba(224,193,136,.4);padding:.5rem 1.1rem;border-radius:100px;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#f4ead0;font-weight:500;white-space:nowrap}
@@ -280,7 +283,7 @@
   .final .glow{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(224,193,136,.16),transparent 70%);top:-40%;left:50%;transform:translateX(-50%);z-index:0}
   .final .wrap{position:relative;z-index:1}
   .final h2{font-size:clamp(2.3rem,4.6vw,3.6rem);color:#fff;margin:14px 0 16px;font-weight:500}
-  .final h2 em{font-style:italic;color:var(--gold-soft)}
+  .final h2 em{font-style:normal;color:var(--gold-soft)}
   .final p{color:#eaf3f0;font-size:1.14rem;max-width:48ch;margin:0 auto 34px;font-weight:300}
 
   /* Footer */
@@ -590,10 +593,10 @@
 <section class="pad" id="finca">
   <div class="wrap historia-grid">
     <div class="historia-visual reveal">
-      <img src="finca.jpg" alt="Finca Alto Bonito, jardines y kiosco de guadua en Palestina, Caldas" loading="lazy">
+      <img src="mama.jpg" alt="Mi mamá, la mujer caficultora de Monte Aurora, con las cerezas de café secándose en la finca en Palestina, Caldas" loading="lazy">
       <div class="shade"></div>
       <div class="frame"></div>
-      <div class="lbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-6.3-7-11a7 7 0 0114 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg> Finca Alto Bonito · Palestina, Caldas</div>
+      <div class="lbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-6.3-7-11a7 7 0 0114 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg> Mi mamá · Mujer caficultora · Palestina, Caldas</div>
     </div>
     <div class="reveal">
       <div class="divider" style="margin:0 0 6px"></div>
